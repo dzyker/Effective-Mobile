@@ -1,0 +1,17 @@
+services:
+  backend:
+    container_name: effective_backend
+    build: ./backend/.
+  
+  nginx:
+    container_name: effective_nginx
+    image: nginx:1.31.1-alpine-slim
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+    depends_on:
+      - backend

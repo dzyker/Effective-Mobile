@@ -1,6 +1,6 @@
 FROM node:20-alpine
 
-RUN groupadd -r setup && useradd -r -g setup -u 1000 setup
+RUN addgroup -S setup && adduser -S -G setup -u 2000 setup
 
 WORKDIR /app
 
